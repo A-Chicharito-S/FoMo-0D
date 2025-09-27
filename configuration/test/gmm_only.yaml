@@ -1,0 +1,7 @@
+test_in_portion: 0.9  # used if we want to test on synthetic data
+num_test: 5000
+feature_truncation: 'subsampling'  # 'subsampling', 'projection'
+seed: 0 # 1, 2, 3, 4
+inf_len: 5000
+preprocess_transform: 'quantile'  # null, 'quantile'
+extra_suffix: ''

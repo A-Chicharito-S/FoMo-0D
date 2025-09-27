@@ -1,0 +1,4 @@
+defaults:
+  - train: gmm_only
+  - prior: gmm
+  - test: gmm_only
