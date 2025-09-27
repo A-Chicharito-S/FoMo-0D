@@ -1,5 +1,5 @@
 # FoMo-0D
-Official implementation of FoMo-0D, a foundation model for zero-shot tabular outlier detection.
+Official implementation of [FoMo-0D](https://arxiv.org/abs/2409.05672), a foundation model for zero-shot tabular outlier detection.
 
 ## Setup Instructions
 - please first follow the instructions in [DTE](https://github.com/vicliv/DTE/tree/main) (https://arxiv.org/abs/2305.18593) and [PFN](https://github.com/automl/PFNs) (https://arxiv.org/abs/2112.10510)
