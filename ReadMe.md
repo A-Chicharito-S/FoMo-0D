@@ -67,13 +67,14 @@ We follow [DTE](https://arxiv.org/abs/2305.18593) and run the seeds 0,1,2,3,4 fo
 
 ## Citation
 ```
-@misc{shen2025fomo0dfoundationmodelzeroshot,
-      title={FoMo-0D: A Foundation Model for Zero-shot Tabular Outlier Detection}, 
-      author={Yuchen Shen and Haomin Wen and Leman Akoglu},
-      year={2025},
-      eprint={2409.05672},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2409.05672}, 
+@article{
+shen2025fomod,
+title={FoMo-0D: A Foundation Model for Zero-shot Tabular Outlier Detection},
+author={Yuchen Shen and Haomin Wen and Leman Akoglu},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2025},
+url={https://openreview.net/forum?id=XCQzwpR9jE},
+note={}
 }
 ```
