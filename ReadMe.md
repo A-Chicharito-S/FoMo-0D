@@ -65,6 +65,40 @@ We follow [DTE](https://arxiv.org/abs/2305.18593) and run the seeds 0,1,2,3,4 fo
   
   and everything will be saved under `'p_val_test/adbench/pre-trained-model-config/inference-config'`
 
+## Using Pretrained FoMo-0D from HuggingFace
+
+We also host the checkpoints of our best pretrained FoMo-0D model on HuggingFace (thanks for the [suggestion](https://github.com/A-Chicharito-S/FoMo-0D/issues/1) from [Niels](https://github.com/NielsRogge)). Below is a minimal example of how to use it, which requires having a local copy of our repo (to have access to the model definitions and [fomo_hub.py](https://github.com/A-Chicharito-S/FoMo-0D/blob/main/fomo_hub.py)). You can find the HuggingFace page of our model [here](https://huggingface.co/YuchenShen/FoMo-0D).
+
+```python
+import torch
+from fomo_hub import FoMo0DHub   # the HuggingFace hub-aware class wrapper for FoMo-0D
+
+def main():
+    # 1) Download + rebuild the model from the Hub
+    repo_id = "YuchenShen/FoMo-0D"
+    model = FoMo0DHub.from_pretrained(repo_id, map_location="cpu").eval()
+
+    print("Model loaded successfully from Hub.")
+
+    # 2) Create dummy input matching FoMo-0D’s expected shape (seq_len, batch_size, num_features)
+    # For example: (seq_len=10, batch=2, num_features=100)
+    bs = 3
+    train_x = torch.randn(5000, bs, model.config["num_features"])
+    test_x = torch.randn(10, bs, model.config["num_features"])
+
+
+    # 3) Run forward pass
+    with torch.no_grad():
+        out = model(train_x=train_x, test_x=test_x)  # (test_x_seq_len=10, batch_size, num_classes=2)
+
+    print(f"Output shape: {out.shape} and type: {type(out)}")
+    # would be: "Output shape: torch.Size([10, 3, 2]) and type: <class 'torch.Tensor'>"
+
+if __name__ == "__main__":
+    main()
+```
+
+
 ## Citation
 ```
 @article{
