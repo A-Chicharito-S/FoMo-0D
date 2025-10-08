@@ -81,7 +81,7 @@ def main():
     print("Model loaded successfully from Hub.")
 
     # 2) Create dummy input matching FoMo-0D’s expected shape (seq_len, batch_size, num_features)
-    # For example: (seq_len=10, batch=2, num_features=100)
+    # For example: (seq_len=10, batch=3, num_features=100)
     bs = 3
     train_x = torch.randn(5000, bs, model.config["num_features"])
     test_x = torch.randn(10, bs, model.config["num_features"])
@@ -97,7 +97,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
+**Note** that to deal with data with input features greate or smaller than the `num_features` of FoMo-0D, we follow the procedure of [PFNs](https://arxiv.org/abs/2112.10510) by subsampling or zero-padding to make the input features consistent with FoMo-0D's `num_feature`(=100). We also detail such procedure in **Appendix C.2 Training and inference** of [our paper](https://arxiv.org/abs/2409.05672), and the implementation (with feature transformation) [here](https://github.com/A-Chicharito-S/FoMo-0D/blob/main/zero_shot_on_adbench.py#L212-L226). 
 
 ## Citation
 ```
